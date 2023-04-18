@@ -4,7 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>e-zen main movie site</title>
+    <title>e-zen movie site</title>
+    <link rel="stylesheet" href="./css/common.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="images"></div>
+
+    <span class="title"></span>
+    <!-- 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      const movieURL =
+        "https://api.themoviedb.org/3/movie/popular?api_key=d0f57e4e20e63bfcf331ff49a646c74c&language=ko-KR";
+
+      $.ajax({
+        type: "GET",
+        url: movieURL,
+        dataType: "json",
+        async: false,
+        success: function (data) {
+          const results = data.results;
+
+          for (const result of results) {
+            console.log("영화 제목 : ", result.title);
+            console.log("상세 설명 : ", result.overview);
+            console.log("평점 : ", result.vote_average);
+            console.log("포스터 : ", result.poster_path);
+
+            let imgURL =
+              "https://image.tmdb.org/t/p/w500/" + result.poster_path;
+
+            $(".images").append(
+              `<a href="../4. 상세 정보/index.html?id=${result.id}"><img src="${imgURL}"></a>`
+            );
+            $(".images").append(`${result.title}`);
+          }
+        },
+        error: function (request, status, error) {
+          console.log("code:" + request.status);
+          console.log("message:" + request.responseText);
+          console.log("error:" + error);
+        },
+      });
+    </script>
+  </body>
 </html>

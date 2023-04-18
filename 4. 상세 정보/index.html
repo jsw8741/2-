@@ -4,7 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>detail</title>
+    <link rel="stylesheet" href="../1. 메인(인기 순위)/css/common.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      // 1. 전체 url 가져오기
+      const currentURL = location.href;
+
+      // 2. 쿼리스트링 파라미터 가져오기
+      const urlobj = new URL(currentURL);
+
+      // 파라미터에 대한 정보가 들어있다.
+      const params = urlobj.searchParams;
+
+      const movie_id = params.get("id");
+      console.log(movie_id);
+
+      const movieURL =
+        "https://api.themoviedb.org/3/movie/popular?api_key=d0f57e4e20e63bfcf331ff49a646c74c&language=ko-KR";
+
+      $.ajax({
+        type: "GET",
+        url: movieURL,
+        dataType: "json",
+        async: false,
+        success: function (data) {
+          const results = data.results;
+
+          for (const result of results) {
+            let imgURL =
+              "https://image.tmdb.org/t/p/w500/" + result.poster_path;
+
+            $(".images").append(
+              `<a href="../4. 상세 정보/index.html?id=${result.id}"><img src="${imgURL}"></a>`
+            );
+            $(".images").append(`${result.title}`);
+          }
+        },
+        error: function (request, status, error) {
+          console.log("code:" + request.status);
+          console.log("message:" + request.responseText);
+          console.log("error:" + error);
+        },
+      });
+    </script>
+  </body>
 </html>
