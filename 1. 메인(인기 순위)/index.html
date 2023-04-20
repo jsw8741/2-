@@ -5,48 +5,139 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>e-zen movie site</title>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="./css/common.css" />
-  </head>
-  <body>
-    <div class="images"></div>
+    <link rel="stylesheet" href="./css/main_index.css" />
 
-    <span class="title"></span>
-    <!-- 제이쿼리 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    <!-- 유튜브 제이쿼리 로드 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- youtube-background 라이브러리 로드 -->
+    <script src="https://unpkg.com/youtube-background@1.0.14/jquery.youtube-background.min.js"></script>
     <script>
-      const movieURL =
-        "https://api.themoviedb.org/3/movie/popular?api_key=d0f57e4e20e63bfcf331ff49a646c74c&language=ko-KR";
-
-      $.ajax({
-        type: "GET",
-        url: movieURL,
-        dataType: "json",
-        async: false,
-        success: function (data) {
-          const results = data.results;
-
-          for (const result of results) {
-            console.log("영화 제목 : ", result.title);
-            console.log("상세 설명 : ", result.overview);
-            console.log("평점 : ", result.vote_average);
-            console.log("포스터 : ", result.poster_path);
-
-            let imgURL =
-              "https://image.tmdb.org/t/p/w500/" + result.poster_path;
-
-            $(".images").append(
-              `<a href="../4. 상세 정보/index.html?id=${result.id}"><img src="${imgURL}"></a>`
-            );
-            $(".images").append(`${result.title}`);
-          }
-        },
-        error: function (request, status, error) {
-          console.log("code:" + request.status);
-          console.log("message:" + request.responseText);
-          console.log("error:" + error);
-        },
+      $(document).ready(function () {
+        $("[data-vbg]").youtube_background(); // 실행
       });
     </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="./images/EZENBOX (1).png" alt="logo" />
+          </div>
+          <div class="menu">
+            <ul>
+              <li><a href="../2. 추천(장르별)/index.html">카테고리</a></li>
+              <li><a href="../5. 높은 평점/index.html">높은별점</a></li>
+              <li><a href="../6. 현재 상영중/index.html">현재상영</a></li>
+              <li><a href="../3. 개봉예정/">개봉예정</a></li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+      </header>
+
+      <main>
+        <div class="animation_box">
+          <div
+            style="
+              position: relative !important;
+              width: 1200px;
+              height: 100%;
+              left: 0;
+              bottom: 0;
+              offset: 1000;
+              margin: 0 auto;
+            "
+          >
+            <div class="reload">
+              <div
+                data-vbg-autoplay="true"
+                data-vbg="https://www.youtube.com/embed/SJPIIQOZb6A"
+                style="opacity: 0.5"
+                id="video_play1"
+              ></div>
+            </div>
+            <div style="height: 550px"></div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+              <div class="title">
+                <span>인기순위 TOP 10</span>
+              </div>
+              <div class="swiper-wrapper" id="slide_wrap">
+                <div class="swiper-slide">
+                  <div id="image0"></div>
+                  <span class="title" id="title0"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image1"></div>
+                  <span class="title" id="title1"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image2"></div>
+                  <span class="title" id="title2"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image3"></div>
+                  <span class="title" id="title3"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image4"></div>
+                  <span class="title" id="title4"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image5"></div>
+                  <span class="title" id="title5"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image6"></div>
+                  <span class="title" id="title6"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image7"></div>
+                  <span class="title" id="title7"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image8"></div>
+                  <span class="title" id="title8"></span>
+                </div>
+
+                <div class="swiper-slide">
+                  <div id="image9"></div>
+                  <span class="title" id="title9"></span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next slide_btn"></div>
+            <div class="swiper-button-prev slide_btn"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <!-- <span class="title"></span> -->
+    <!-- <div class="images"></div> -->
+
+    <!-- 제이쿼리 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+    <script src="./js/main.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   </body>
 </html>
