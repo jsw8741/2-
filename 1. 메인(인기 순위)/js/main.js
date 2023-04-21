@@ -40,7 +40,7 @@ $(function () {
         let imgURL =
           "https://image.tmdb.org/t/p/w500/" + results[i].poster_path;
 
-        $("#image" + [i]).append(`<img src="${imgURL}">`);
+        $("#image" + [i]).append(`<img src="${imgURL}" alt="poster">`);
 
         $("#title" + [i]).append(`${[i + 1]}. ${results[i].title}`);
       }
@@ -59,6 +59,9 @@ $(function () {
           dataType: "json",
           async: true,
           success: function (data) {
+            // console.log("현재 슬라이드 영화 ID", data.id);
+            let move_detailURL = "../4. 상세 정보/index.html?id=" + data.id;
+            $(".move_detail").attr("href", move_detailURL);
             if (!data.results[0]) {
             } else {
               let videoKey = data.results[0].key;
@@ -73,15 +76,17 @@ $(function () {
                 let animationURL = "https://www.youtube.com/embed/" + videoKey;
 
                 $("#video_play" + old).remove();
+                $(".video-background-controls").remove();
                 old += 1;
                 add += 1;
-                $(".reload").append(`<div data-vbg-autoplay="true"
-              data-vbg="${animationURL}"id="video_play${add}"></div>`);
+                $(".reload")
+                  .append(`<div data-vbg-autoplay="true" data-vbg-play-button="true" data-vbg-mute-button="true"
+              data-vbg="${animationURL}"id="video_play${add}"style="opacity: 0.5;"></div>`);
+
                 $(document).ready(function () {
                   $("[data-vbg]").youtube_background(); // 실행
                 });
                 $("#video_play").load(location.href + "#video_play");
-                // console.log(#video_play.id);
               }
             }
           },

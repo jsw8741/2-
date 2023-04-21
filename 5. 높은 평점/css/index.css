@@ -1,0 +1,65 @@
+@charset "utf-8";
+body {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgb(27, 27, 27);
+}
+
+.wrap {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  background-color: rgb(27, 27, 27);
+}
+
+/* 메인 */
+main {
+  background-color: rgb(27, 27, 27);
+  width: 100%;
+  padding-top: 130px;
+  border-top: solid 1px rgba(190, 189, 189, 0.705);
+  padding-bottom: 70px;
+}
+.textp {
+  font-family: "Noto Sans KR", sans-serif;
+  color: yellow;
+}
+
+.allimg {
+  border-left: 0.5px solid rgb(165, 165, 156);
+  border-right: 0.5px solid rgb(165, 165, 156);
+  width: 1250px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*  */
+.dima {
+  display: inline-block;
+  text-align: left;
+  font-size: 13px;
+  color: rgb(165, 165, 156);
+  justify-content: center;
+  align-items: center;
+}
+
+main p {
+  width: 170px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+main img {
+  width: 170px;
+  height: 255px;
+  margin: 0px auto;
+}
+
+main img:hover {
+  transform: scale(1.1);
+}
