@@ -25,7 +25,7 @@ for (o = 1; o < 15; o++) {
           popular++;
           $(".slide_popular" + popular).attr("src", imgURL);
           $(".title_popular" + popular).text(popular + "위:  " + title);
-          console.log(result);
+          // console.log(result);
           $(".information_popular" + popular).attr(
             "href",
             "../4. 상세 정보/index.html?id=" + result.id

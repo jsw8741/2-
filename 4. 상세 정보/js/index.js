@@ -51,7 +51,7 @@ $.ajax({
     for (const data of image) {
       let imgURL = "https://image.tmdb.org/t/p/w500" + image;
 
-      $(".images").append(`<img src="${imgURL}">`);
+      $(".images").append(`<img src="${imgURL}" alt="poster">`);
       break;
     }
 

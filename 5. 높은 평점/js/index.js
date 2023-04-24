@@ -28,7 +28,7 @@ $.ajax({
         `../4. 상세 정보/index.html?id=${result.id}` +
         "'><img src='" +
         imgURL +
-        "'></a>" +
+        "'alt='poster'></a>" +
         //제목을 불러옴
         "<p> 제목 : " +
         result.title +

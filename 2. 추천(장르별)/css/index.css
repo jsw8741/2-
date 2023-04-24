@@ -5,6 +5,8 @@ html {
 }
 main {
   background-color: rgb(27, 27, 27) !important;
+  padding-top: 70px;
+  padding-bottom: 200px;
 }
 body {
   background: #eee;
