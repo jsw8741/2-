@@ -103,26 +103,30 @@ $.ajax({
 //예고편
 const videoURL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=d0f57e4e20e63bfcf331ff49a646c74c&language=ko-KR`;
 
-if (!videoURL.results) {
-  console.log(video);
-  $(".main-bottom").remove();
-} else {
-  $.ajax({
-    type: "GET",
-    url: videoURL,
-    dataType: "json",
-    async: false,
-    success: function (data) {
+$.ajax({
+  type: "GET",
+  url: videoURL,
+  dataType: "json",
+  async: false,
+  success: function (data) {
+    if (!data.results) {
+      console.log("dddd");
+      $(".main-bottom").remove();
+    } else {
       const video = data.results[0].key;
+
+      $(".main-bottom").append(`<p>예고편</p><div class="video">
+            <iframe id="video" width="1280" height="720" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>`);
 
       let movieVideoURL = "https://www.youtube.com/embed/" + video;
       console.log(data.results[0].key);
       $("#video").attr("src", `${movieVideoURL}`);
-    },
-    error: function (request, status, error) {
-      console.log("code:" + request.status);
-      console.log("message:" + request.responseText);
-      console.log("error:" + error);
-    },
-  });
-}
+    }
+  },
+  error: function (request, status, error) {
+    console.log("code:" + request.status);
+    console.log("message:" + request.responseText);
+    console.log("error:" + error);
+  },
+});
