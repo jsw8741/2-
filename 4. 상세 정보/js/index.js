@@ -17,7 +17,7 @@ $.ajax({
   dataType: "json",
   async: false,
   success: function (data) {
-    console.log("전체 data:", data);
+    // console.log("전체 data:", data);
     // 포스터
     const image = data.poster_path;
 
@@ -35,15 +35,15 @@ $.ajax({
 
     //장르
     const genreses = data.genres;
-    console.log(genreses);
+    // console.log(genreses);
 
     const genresesLength = genreses.length;
     for (let i = 0; i < genresesLength; i++) {
       const genres = genreses[i];
-      console.log(genres);
+      // console.log(genres);
 
       const genres_name = genres.name;
-      console.log(genres_name);
+      // console.log(genres_name);
 
       $(".genres").append(` ${genres_name} &nbsp;`);
     }
@@ -57,7 +57,7 @@ $.ajax({
 
     //평점
     const average = data.vote_average.toFixed(1);
-    console.log(average);
+    // console.log(average);
 
     //줄거리
     const overview = data.overview;
@@ -87,7 +87,7 @@ $.ajax({
     const cast = data.cast;
 
     for (let i = 0; i < 5; i++) {
-      console.log(cast[i].name);
+      // console.log(cast[i].name);
       const castList = cast[i].name;
 
       $(".casting").append(` ${castList} &nbsp; `);
@@ -103,23 +103,26 @@ $.ajax({
 //예고편
 const videoURL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=d0f57e4e20e63bfcf331ff49a646c74c&language=ko-KR`;
 
-$.ajax({
-  type: "GET",
-  url: videoURL,
-  dataType: "json",
-  async: false,
-  success: function (data) {
-    console.log(data);
-    const video = data.results[0].key;
-    console.log(video);
-    for (const data of video) {
+if (!videoURL.results) {
+  console.log(video);
+  $(".main-bottom").remove();
+} else {
+  $.ajax({
+    type: "GET",
+    url: videoURL,
+    dataType: "json",
+    async: false,
+    success: function (data) {
+      const video = data.results[0].key;
+
       let movieVideoURL = "https://www.youtube.com/embed/" + video;
+      console.log(data.results[0].key);
       $("#video").attr("src", `${movieVideoURL}`);
-    }
-  },
-  error: function (request, status, error) {
-    console.log("code:" + request.status);
-    console.log("message:" + request.responseText);
-    console.log("error:" + error);
-  },
-});
+    },
+    error: function (request, status, error) {
+      console.log("code:" + request.status);
+      console.log("message:" + request.responseText);
+      console.log("error:" + error);
+    },
+  });
+}
