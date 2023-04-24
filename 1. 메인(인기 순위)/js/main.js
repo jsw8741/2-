@@ -65,7 +65,9 @@ $(function () {
             console.log(data.results[0]);
             if (!data.results[0]) {
               $(".video_box").remove();
-              $(".reload").append(`<div class="video_box"style="font-size: 50px;color: white;text-align: center;top: 515px;left: 390px;position: absolute;">예고편이 없습니다.</div>`);
+              $(".reload").append(
+                `<div class="video_box"style="font-size: 50px;color: white;text-align: center;top: 515px;left: 390px;position: absolute;">예고편이 없습니다.</div>`
+              );
             } else {
               let videoKey = data.results[0].key;
               replay();
@@ -102,5 +104,32 @@ $(function () {
       console.log("message:" + request.responseText);
       console.log("error:" + error);
     },
+  });
+
+  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+    mapOption = {
+      center: new kakao.maps.LatLng(37.450252, 126.702831), // 지도의 중심좌표
+      level: 2, // 지도의 확대 레벨
+    };
+
+  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+  // 마커가 표시될 위치입니다
+  var markerPosition = new kakao.maps.LatLng(37.450252, 126.702831);
+
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+    position: markerPosition,
+    clickable: true,
+  });
+
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
+
+  // 마커에 클릭이벤트를 등록합니다
+  kakao.maps.event.addListener(marker, "click", function () {
+    window.open(
+      "https://map.naver.com/v5/directions/-/14104502.65512145,4502058.492730632,%EC%9D%B4%EC%A0%A0%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%EC%BB%B4%ED%93%A8%ED%84%B0%ED%95%99%EC%9B%90%20%EC%9D%B8%EC%B2%9C,38238173,PLACE_POI/-/car?c=15,0,0,0,dh"
+    );
   });
 });
