@@ -10,6 +10,7 @@ header {
   z-index: 999;
   border-bottom: 0.5px solid #575757;
   background-color: rgb(27, 27, 27);
+  align-items: center;
 }
 
 .container {
@@ -26,7 +27,7 @@ header {
   margin-bottom: 1px;
 }
 
-ul {
+.menu_ul {
   list-style: none;
   width: 900px !important;
   height: 90px;
@@ -39,7 +40,7 @@ ul {
   height: 120px;
 }
 
-ul > li {
+.menu_li {
   display: inline-block !important;
   list-style: none !important;
   margin: 15px !important;
@@ -47,7 +48,7 @@ ul > li {
   line-height: 61px !important;
 }
 
-.menu > ul > li > a {
+.menu_li_a {
   display: inline-block;
   height: 61px;
   text-decoration: none !important;
@@ -67,6 +68,7 @@ ul > li {
 footer {
   margin: 0 auto;
   width: 100%;
+  height: 180px;
   background-color: rgb(27, 27, 27);
   border-top: 0.5px solid #494949;
 }
@@ -74,6 +76,7 @@ footer {
 .footer-wr {
   margin: 0 auto;
   width: 100%;
+  height: 90px;
   display: flex;
   padding-top: 55px;
   padding-bottom: 35px;

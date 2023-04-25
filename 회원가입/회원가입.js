@@ -56,7 +56,7 @@ $(".register").click(function () {
   }
 
   alert("회원가입이 완료 되었습니다.");
-  location.href = "../e0zen_Grop2_movie_site/1. 메인(인기 순위)/";
+  location.href = "../1. 메인(인기 순위)/index.html";
 });
 
 // 식

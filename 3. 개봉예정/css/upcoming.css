@@ -13,6 +13,11 @@ a {
 body {
   margin: 0;
   padding: 0;
+  position: relative;
+  width: 100%;
+  min-width: 1800px;
+  background-color: rgb(27, 27, 27) !important;
+  color: #d9d9d9 !important;
 }
 
 .swiper {
@@ -38,11 +43,6 @@ body {
 
 :root {
   --swiper-theme-color: #ddd !important;
-}
-
-body {
-  background-color: rgb(27, 27, 27) !important;
-  color: #d9d9d9 !important;
 }
 
 /* 메인 */
