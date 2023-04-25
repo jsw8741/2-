@@ -28,11 +28,15 @@ header {
 
 ul {
   list-style: none;
-  width: 900px;
+  width: 900px !important;
+  height: 90px;
+  margin: 16px 0 16px 0 !important;
+  padding-left: 40px !important;
 }
 
 .menu {
   width: 800px;
+  height: 120px;
 }
 
 ul > li {
@@ -43,16 +47,21 @@ ul > li {
   line-height: 61px !important;
 }
 
-ul > li > a {
+.menu > ul > li > a {
+  display: inline-block;
+  height: 61px;
   text-decoration: none !important;
   color: white;
-  padding: 15px !important;
+  padding-left: 15px !important;
   font-size: 28px !important;
   font-weight: bold;
   background: url(https://static.nid.naver.com/images/join/pc/bu_bar_2x.gif)
     left 50% no-repeat !important;
 }
 
+.menu li a:hover {
+  color: #c0bdbd;
+}
 /* 푸터 */
 
 footer {
