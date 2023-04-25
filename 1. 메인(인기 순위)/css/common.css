@@ -5,7 +5,7 @@ header {
   padding: 0;
   width: 100%;
   min-width: 1200px;
-  height: 150px;
+  height: 150px !important;
   position: fixed;
   z-index: 999;
   border-bottom: 0.5px solid #575757;
@@ -19,6 +19,11 @@ header {
   height: 150px;
   display: flex;
   align-items: center;
+}
+
+.logo {
+  height: 100px;
+  margin-bottom: 1px;
 }
 
 ul {
@@ -35,6 +40,7 @@ ul > li {
   list-style: none !important;
   margin: 15px !important;
   height: 61px !important;
+  line-height: 61px !important;
 }
 
 ul > li > a {
