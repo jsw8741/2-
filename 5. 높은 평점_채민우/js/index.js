@@ -25,7 +25,7 @@ $.ajax({
         movierank +
         "</p>" +
         "<a href='" +
-        `../4. 상세 정보/index.html?id=${result.id}` +
+        `../4. 상세 정보_이지희/index.html?id=${result.id}` +
         "'><img src='" +
         imgURL +
         "'alt='poster'></a>" +

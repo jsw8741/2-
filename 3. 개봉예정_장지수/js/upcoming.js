@@ -16,7 +16,7 @@ $.ajax({
       $(".upcoming")
         .eq(index)
         .find("a")
-        .attr("href", `../4. 상세 정보/index.html?id=${result.id}`);
+        .attr("href", `../4. 상세 정보_이지희/index.html?id=${result.id}`);
       $(".upcoming").eq(index).find(".card-img-top").attr("src", imgURL);
       $(".upcoming").eq(index).find(".card-img-top").attr("alt", result.title);
       $(".upcoming").eq(index).find(".title").text(result.title);
