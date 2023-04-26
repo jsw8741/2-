@@ -8,6 +8,7 @@
 }
 
 header {
+  display: flex !important;
   margin-bottom: 550px;
   padding: 0;
   width: 100%;
@@ -17,13 +18,14 @@ header {
   z-index: 999;
   border-bottom: 0.5px solid #575757;
   background-color: rgb(27, 27, 27);
+  align-items: center;
 }
 
 .head {
   margin: 0 !important;
   padding: 0 !important;
-  min-width: 1200px;
   width: 100%;
+  max-width: none !important;
   height: 150px;
   display: flex;
   align-items: center;
@@ -66,6 +68,22 @@ header {
   color: #c0bdbd;
 }
 
+.login {
+  float: right;
+  height: 150px;
+  line-height: 150px;
+  width: 180px;
+}
+
+.login > a {
+  font-size: 65px;
+  color: white !important;
+}
+
+.login > a:hover {
+  color: #c0bdbd;
+}
+
 /* 푸터 */
 
 footer {
@@ -89,15 +107,19 @@ footer {
   margin: 0 auto;
   width: 1100px;
 }
+
 .footer-ul {
   margin: 0 auto;
+  padding-left: 40px !important;
   width: 1100px;
 }
+
 .footer-li {
   list-style: none;
   font-size: 12px;
   color: rgb(165, 165, 156);
 }
+
 .footer-img {
   float: right;
 }

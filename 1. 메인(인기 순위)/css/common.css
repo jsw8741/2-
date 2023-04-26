@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 header {
+  display: flex !important;
   margin-bottom: 550px;
   padding: 0;
   width: 100%;
@@ -17,6 +18,7 @@ header {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: none !important;
   height: 150px;
   display: flex;
   align-items: center;
@@ -63,6 +65,23 @@ header {
 .menu li a:hover {
   color: #c0bdbd;
 }
+
+.login {
+  /* float: right !important; */
+  height: 150px !important;
+  line-height: 150px !important;
+  width: 180px !important;
+}
+
+.login > a {
+  font-size: 65px !important;
+  color: white !important;
+}
+
+.login > a:hover {
+  color: #c0bdbd !important;
+}
+
 /* 푸터 */
 
 footer {

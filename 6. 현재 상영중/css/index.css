@@ -2,7 +2,9 @@
 body {
   margin: 0;
   padding: 0;
-  /* font-size: 0.9em; */
+  position: relative;
+  width: 100%;
+  min-width: 1800px;
   background-color: rgb(27, 27, 27);
 }
 

@@ -61,7 +61,7 @@ $(".register").click(function () {
 
 // 식
 function IdCheck(Id) {
-  const reg = /^[a-Z]+[a-Z0-9]{5,14}$/;
+  const reg = /^[a-z]+[a-z0-9]{5,19}$/g;
   return reg.test(Id); //맞으면 true, 틀리면 false
 }
 function pwdCheck(pwd) {
