@@ -12,6 +12,7 @@ header {
   border-bottom: 0.5px solid #575757;
   background-color: rgb(27, 27, 27);
   align-items: center;
+  box-sizing: content-box !important;
 }
 
 .container {

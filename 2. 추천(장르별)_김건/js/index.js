@@ -28,7 +28,7 @@ for (o = 1; o < 15; o++) {
           // console.log(result);
           $(".information_popular" + popular).attr(
             "href",
-            "../4. 상세 정보_이지희/index.html?id=" + result.id
+            "../4.%20상세%20정보_이지희/index.html?id=" + result.id
           );
         }
         for (let i = 0; i <= result.genre_ids.length; i++) {
@@ -40,7 +40,7 @@ for (o = 1; o < 15; o++) {
             $(".titlea" + action).text(action + "위:  " + title);
             $(".information_action" + action).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             action++;
           }
@@ -52,7 +52,7 @@ for (o = 1; o < 15; o++) {
             $(".titler" + animation).text(animation + "위:  " + title);
             $(".information_animation" + animation).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             animation++;
           }
@@ -64,7 +64,7 @@ for (o = 1; o < 15; o++) {
             $(".title_Horror" + Horror).text(Horror + "위:  " + title);
             $(".information_Horror" + Horror).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             Horror++;
           }
@@ -76,7 +76,7 @@ for (o = 1; o < 15; o++) {
             $(".title_Crime" + Crime).text(Crime + "위:  " + title);
             $(".information_Crime" + Crime).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             Crime++;
           }
@@ -88,7 +88,7 @@ for (o = 1; o < 15; o++) {
             $(".title_Fantasy" + Fantasy).text(Fantasy + "위:  " + title);
             $(".information_Fantasy" + Fantasy).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             Fantasy++;
           }
@@ -100,7 +100,7 @@ for (o = 1; o < 15; o++) {
             $(".titlef" + family).text(family + "위:  " + title);
             $(".information_family" + family).attr(
               "href",
-              "../4. 상세 정보_이지희/index.html?id=" + result.id
+              "../4.%20상세%20정보_이지희/index.html?id=" + result.id
             );
             family++;
           }

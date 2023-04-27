@@ -10,25 +10,18 @@ $.ajax({
     const results = data.results;
     console.log(results);
 
-    $.each(results, function (index, result) {
-      let imgURL = "https://image.tmdb.org/t/p/w500" + result.poster_path;
+    for (const result of results) {
+      const imgURL = `https://image.tmdb.org/t/p/w500${result.poster_path}`;
+      const upcoming = $(".upcoming").eq(results.indexOf(result));
 
-      $(".upcoming")
-        .eq(index)
+      upcoming
         .find("a")
-        .attr("href", `../4. 상세 정보_이지희/index.html?id=${result.id}`);
-      $(".upcoming").eq(index).find(".card-img-top").attr("src", imgURL);
-      $(".upcoming").eq(index).find(".card-img-top").attr("alt", result.title);
-      $(".upcoming").eq(index).find(".title").text(result.title);
-      $(".upcoming")
-        .eq(index)
-        .find(".date")
-        .text(`개봉일 ${result.release_date}`);
-      $(".upcoming")
-        .eq(index)
-        .find(".score")
-        .text(`회원 평점 ${result.vote_average}`);
-    });
+        .attr("href", `../4.%20상세%20정보_이지희/index.html?id=${result.id}`);
+      upcoming.find(".card-img-top").attr({ src: imgURL, alt: result.title });
+      upcoming.find(".title").text(result.title);
+      upcoming.find(".date").text(`개봉일 ${result.release_date}`);
+      upcoming.find(".score").text(`회원 평점 ${result.vote_average}`);
+    }
   },
   error: function (request, status, error) {
     console.log("code:" + request.status);
@@ -38,8 +31,7 @@ $.ajax({
   },
 });
 
-// 포스터
-
+// 포스터 애니메이션
 function zoomIn(event) {
   event.target.style.transform = "scale(1.1)";
   event.target.style.zIndex = 1;
@@ -66,13 +58,8 @@ function toggleDisplay() {
 btn.addEventListener("click", toggleDisplay);
 
 // 스크롤
-
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 100) {
-    $(".top").fadeIn();
-  } else {
-    $(".top").fadeOut();
-  }
+  $(".top").toggle($(this).scrollTop() > 100);
 });
 
 $(".top").click(function () {

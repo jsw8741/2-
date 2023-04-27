@@ -19,6 +19,7 @@ header {
   border-bottom: 0.5px solid #575757;
   background-color: rgb(27, 27, 27);
   align-items: center;
+  box-sizing: content-box !important;
 }
 
 .head {
@@ -62,6 +63,7 @@ header {
   font-weight: bold;
   background: url(https://static.nid.naver.com/images/join/pc/bu_bar_2x.gif)
     left 50% no-repeat !important;
+  box-sizing: content-box !important;
 }
 
 .menu-ul li a:hover {

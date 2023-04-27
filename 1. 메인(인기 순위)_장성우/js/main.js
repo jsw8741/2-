@@ -61,7 +61,7 @@ $(function () {
           success: function (data) {
             // console.log("현재 슬라이드 영화 ID", data.id);
             let move_detailURL =
-              "../4. 상세 정보_이지희/index.html?id=" + data.id;
+              "../4.%20상세%20정보_이지희/index.html?id=" + data.id;
             $(".move_detail").attr("href", move_detailURL);
             console.log(data.results[0]);
             if (!data.results[0]) {
